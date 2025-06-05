@@ -135,6 +135,10 @@ function createCard(work) {
 }
 
 function showLightbox(work) {
+  // 打开大图预览时暂停所有卡片轮播
+  document.querySelectorAll('.card').forEach(card => {
+    card.dispatchEvent(new Event('mouseleave'));
+  });
   // 支持单图和多图
   const images = work.images ? work.images : [work.img];
   let idx = 0;
